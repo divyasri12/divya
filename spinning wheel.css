@@ -1,0 +1,25 @@
+#image{
+	width: 60%;
+	height: 40%;
+	box-sizing: border-box;
+	margin: auto;
+}
+#image img{
+	width: 60%;
+	height: 40%;
+	margin: auto;
+	padding: auto;
+	margin-left: 155px;
+	box-sizing: border-box;
+	animation-name: spin;
+	animation-iteration-count:infinite;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+}
+@keyframes spin{
+	from{transform: rotateZ(0deg);}
+	to{transform: rotateZ(360deg);}
+}
+#image img:hover{
+	animation-play-state: paused;
+}

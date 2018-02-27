@@ -1,5 +1,8 @@
+*{
+	box-sizing: border-box;
+}
 #left{
-	width: 300px;
+	width: 280px;
 	height: 100%;
 	position: fixed;
 	box-sizing: border-box;
@@ -235,4 +238,12 @@
 	width: 150px;
 	height: 20px;
 	box-sizing: border-box;
+}
+[class*="col-"] {
+    width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  #left{
+  	display: none;
+  }
 }
