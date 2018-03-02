@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+var ranNo = Math.ceil(Math.random()*6);
+var ranNo2= Math.ceil(Math.random()*6);
+var ran = ranNo+ranNo2;
+var guessNo=parseInt(Math.ceil(prompt('guess number from 1-12')));
+if (guessNo > 12 || guessNo < 0) {
+	alert('Please enter numbers from 1-12')
+}
+else if (ran===guessNo) {
+ alert('Congratulations');
+}else{
+	alert(ran);
+
+}
+
+
+</script>
+</body>
+</html>
