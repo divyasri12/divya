@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var h3 = document.createElement('h3');
+	h3.innerText = "This is just a Trial";
+	document.body.appendChild(h3);
+	var ul = document.createElement('ul');
+	ul.id="list";
+	var names = ['Home','About','Contact','Email'];
+		
+		document.body.appendChild(ul);
+ 
+		names.forEach(function(name){
+			var li = document.createElement('li');
+			ul.appendChild(li);
+			li.innerHTML += name;
+		});
+	
+
+</script>
+</body>
+</html>
