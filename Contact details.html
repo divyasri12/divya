@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	<style type="text/css">
+		#main{
+			width: 40%;
+			margin-left: 400px;
+			border-radius: 10px;
+			border: solid black 1px;
+			border-collapse: collapse;
+			box-sizing: border-box;
+		}
+		#contact{
+			width: 100%;
+			padding: 25px;
+			background-color: grey;
+			box-sizing: border-box;
+		}
+		h3{
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			margin: 0px;
+			background-color: skyblue;
+			text-align: center;
+			border-radius: 10px 10px 0px 0px;
+			font-family: 'Noto Sans', sans-serif;
+
+		}
+		#contact i{
+			font-size: 100px;
+			margin: 0px;
+			padding: 0px;
+			color: white;
+			margin-left: 175px;
+
+		}
+		#details{
+			padding: 15px;
+			font-family: 'Noto Sans', sans-serif;
+
+
+		}
+		#details input{
+			width: 100%;
+			box-sizing: border-box;
+			padding: 10px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-family: 'Noto Sans', sans-serif;
+		
+		}
+		#save, #reset, #delete{
+			padding: 10px 15px;
+			background-color: skyblue;
+			border-radius: 10px;
+			margin: 20px 0px;
+			font-family: 'Noto Sans', sans-serif;
+
+		}
+		#save{
+			margin-left: 20px;
+		}
+		#reset{
+			margin-right: 20px;
+		}
+		#reset, #delete{
+			float: right;
+		}
+		#error1, #error2, #error3, #error4{
+			color: red;
+		}
+		table{
+			width:1024px;
+			margin: 50px auto; 
+			padding:0 0 50px 0; 
+			text-align: center;
+			font-family: 'Noto Sans', sans-serif;
+
+		}
+		tr,td,th{
+			border-bottom:1px solid;
+			border-collapse: collapse;
+			padding: 5px;
+			box-sizing: border-box;
+			font-family: 'Noto Sans', sans-serif;
+
+		}
+	</style>
+</head>
+<body>
+<div id="main">
+	<h3>Add New Contact</h3>
+	<div id="contact"><i class="fa fa-fw fa-user"></i></div><br/>
+	<form id="for">
+	<div id="details">
+	
+		<label>Name</label><br/>
+		<input type="text" name="name" id="nam"  placeholder="Eg: Divya"><br/>
+		<span id="error1"></span>
+
+		<label>Phone</label><br/>
+		<input type="number" name="Phone #" id="phone"  placeholder="Eg: 999999999"><br/>
+		<span id="error2"></span>
+
+		<label>Email</label><br/>
+		<input type="E-mail" name="E-mail" id="email"  placeholder="Eg: abc@mail.com"><br/>
+		<span id="error3"></span>
+
+		<label>Company</label><br/>
+		<input type="text" name="company" id="company" placeholder="Eg: abcd"><br/>
+		<span id="error4"></span>
+		
+	</div>
+</form>
+	<input type="button" id="save" value="Save" onclick="valid()">
+	<input type="reset" id="reset" value="Reset" onclick="reset()">
+	<button id="delete" onclick="del()">Delete</button>
+
+</div>
+
+<table>
+		<thead>
+			<tr>
+				<th>
+					Name 
+				</th>
+				<th>
+					Contact
+				</th>
+				<th>
+					Email
+				</th>
+				<th>
+					Company
+				</th>
+				<th>
+					Edit/Delete
+				</th>
+			</tr>
+			<tbody id="info">
+			
+			</tbody>
+		</thead>
+</table>
+
+
+
+<script type="text/javascript">
+var arr=[];
+var localData = JSON.parse(localStorage.getItem('arr'));
+
+	function valid(){
+		var nam = document.getElementById("nam").value;
+		var phone = document.getElementById("phone").value;
+		var email = document.getElementById("email").value;
+		var company = document.getElementById("company").value;
+		
+		if(nam==""){
+			document.getElementById("error1").innerHTML="**Please enter valid name**<br/>";
+			return false;
+		}
+		else{
+			document.getElementById("error1").innerHTML = "";
+		}
+		if(phone==""){
+			document.getElementById("error2").innerHTML="**Please enter valid phone #**<br/>";
+			return false;
+		}
+		else{
+			document.getElementById("error2").innerHTML = "";
+		}
+		if(email==""){
+			document.getElementById("error3").innerHTML="**Please enter valid email**<br/>";
+			return false;
+		}
+		else{
+			document.getElementById("error3").innerHTML = "";
+		}
+		if(company==""){
+			document.getElementById("error4").innerHTML="**Please enter valid company**<br/>";
+			return false;
+		}
+		else{
+			
+
+			var Obj = {"name":nam, "phone":phone,"email":email,"company":company};	
+			arr.push(Obj);
+
+			localStorage.setItem('arr', JSON.stringify(arr));
+		}
+	}
+
+	function reset(){
+		document.getElementById("for").reset();
+	}
+	function del(){
+		document.getElementById("main").innerText = "Deleted the contact";
+		document.getElementById("main").style.backgroundColor= "skyblue";
+		document.getElementById("main").style.margin="250px 250px 250px 500px";
+		document.getElementById("main").style.padding="20px";
+		document.getElementById("main").style.width="250px";
+		document.getElementById("main").style.textAlign="center";
+	}
+	var info = document.getElementById("info");
+	var tr = document.createElement('tr');
+	var Name = document.createElement('td');
+	var Phone = document.createElement('td');
+	var Email = document.createElement('td');
+	var Company = document.createElement('td');
+
+	function info(){
+		for(var i = 0; i < localData.length; i++){
+					
+			Name.innerText = localData[i].name;
+			Phone.innerText = localData[i].phone;
+			Email.innerText = localData[i].email;
+			Company.innerText = localData[i].company;
+		}
+		
+		}
+		tr.appendChild(Name);
+		tr.appendChild(Phone);
+		tr.appendChild(Email);
+		tr.appendChild(Company);
+		info.appendChild(tr);
+// save.addEventListener('click', info);
+	
+	
+</script>
+</body>
+</html>
