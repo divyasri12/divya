@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <style>
+    
+    table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+<table id="contactInfo">
+    <tr>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Company</th>
+    </tr>
+    
+</table>
+	<script type="text/javascript">
+
+		var url = "https://jsonplaceholder.typicode.com/users";
+        var hrequest = new XMLHttpRequest();
+            console.log(hrequest);
+
+        hrequest.onreadystatechange = function(){
+
+            if(this.readyState == 4 && this.status == 200){	
+                var resData = this.responseText;                
+                console.log(JSON.parse(resData));                
+                var data = JSON.parse(resData);
+                
+                // localStorage.setItem('Obj',JSON.stringify(data));
+                // var data=localStorage.getItem('Obj',JSON.parse(data));
+           
+
+    
+        for(var i = 0; i < data.length; i++){
+                         
+            var tr = document.createElement('tr');
+            var Id = document.createElement('td');
+            var Name = document.createElement('td');
+            var Email = document.createElement('td');
+            var address = document.createElement('td');
+            var phone = document.createElement('td');
+            var website = document.createElement('td');
+            var company = document.createElement('td');
+            
+            name.innerText = data[i].name;
+            Id.innerText = data[i].id;
+            Email.innerText = data[i].email;
+            address.innerText = data[i].address.street+', '+data[i].address.suite+', '+data[i].address.city+', '+data[i].address.zipcode;
+            phone.innerText = data[i].phone;
+            website.innerText = data[i].website;
+            company.innerText = data[i].company.name;
+
+            tr.appendChild(Name);
+            tr.appendChild(Id);
+            tr.appendChild(Email);
+            tr.appendChild(address);
+            tr.appendChild(phone);
+            tr.appendChild(website);
+            tr.appendChild(company);
+            document.getElementById("contactInfo").appendChild(tr);
+        
+            }
+            }}
+        
+       
+        hrequest.open('GET', url, true);
+        hrequest.send();
+
+        </script>
+</body>
+</html>
