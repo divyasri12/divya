@@ -105,7 +105,7 @@
 		<span id="error1"></span>
 
 		<label>Phone</label><br/>
-		<input type="number" name="Phone #" id="phone"  placeholder="Eg: 999999999"><br/>
+		<input type="text" name="Phone #" id="phone"  placeholder="Eg: 999999999"><br/>
 		<span id="error2"></span>
 
 		<label>Email</label><br/>
@@ -117,7 +117,7 @@
 		<span id="error4"></span>
 		
 	</div>
-</form>
+	</form>
 	<input type="button" id="save" value="Save" onclick="valid()">
 	<input type="reset" id="reset" value="Reset" onclick="reset()">
 	<button id="delete" onclick="del()">Delete</button>
@@ -152,47 +152,52 @@
 
 
 <script type="text/javascript">
-var arr=[];
-var localData = JSON.parse(localStorage.getItem('arr'));
 
+
+var arr=[];
 	function valid(){
 		var nam = document.getElementById("nam").value;
 		var phone = document.getElementById("phone").value;
 		var email = document.getElementById("email").value;
 		var company = document.getElementById("company").value;
+		var cha = /^[A-Za-z0-9]{3,20}$/;
+		var num = /^([0-9]{10,15})$/;
+		var mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		
-		if(nam==""){
+		if(nam=="" || !cha.test(nam)){
 			document.getElementById("error1").innerHTML="**Please enter valid name**<br/>";
 			return false;
 		}
 		else{
 			document.getElementById("error1").innerHTML = "";
 		}
-		if(phone==""){
+		if(phone=="" || !num.test(phone)){
 			document.getElementById("error2").innerHTML="**Please enter valid phone #**<br/>";
 			return false;
 		}
 		else{
 			document.getElementById("error2").innerHTML = "";
 		}
-		if(email==""){
+		if(email=="" || !mail.test(email)){
 			document.getElementById("error3").innerHTML="**Please enter valid email**<br/>";
 			return false;
 		}
 		else{
 			document.getElementById("error3").innerHTML = "";
 		}
-		if(company==""){
+		if(company=="" || !cha.test(company)){
 			document.getElementById("error4").innerHTML="**Please enter valid company**<br/>";
 			return false;
 		}
+
 		else{
+			
+			localStorage.setItem('arr', JSON.stringify(arr));
+			var localData = JSON.parse(localStorage.getItem('arr'));
 			
 
 			var Obj = {"name":nam, "phone":phone,"email":email,"company":company};	
 			arr.push(Obj);
-
-			localStorage.setItem('arr', JSON.stringify(arr));
 
 			
 			var tr = document.createElement('tr');
@@ -203,37 +208,50 @@ var localData = JSON.parse(localStorage.getItem('arr'));
 			var BtnTD = document.createElement('td');
 	
 		for(var i = 0; i < localData.length; i++){
+			localStorage.setItem('arr', JSON.stringify(arr));
+			var localData = JSON.parse(localStorage.getItem('arr'));
 					
 			Name.innerText = localData[i].name;
 			Phone.innerText = localData[i].phone;
 			Email.innerText = localData[i].email;
 			Company.innerText = localData[i].company;
 
+			var Edit = document.createElement('button');
+				Edit.innerText = "Edit";
+				Edit.id = "edit";
+				
+			var Delete = document.createElement('button');
+				Delete.innerText = 'Delete';
+				Delete.className = "del";
+		}
+
+			
+
+			BtnTD.appendChild(Edit)
+			BtnTD.appendChild(Delete);
 			tr.appendChild(Name);
 			tr.appendChild(Phone);
 			tr.appendChild(Email);
 			tr.appendChild(Company);
-			}
-			var Edit = document.createElement('button');
-				Edit.innerText = "Edit";
-				Edit.id = "edit";
-				Edit.onclick = "edi()";
-			var Delete = document.createElement('button');
-				Delete.innerText = 'Delete';
-				Delete.className = "del";
-
-			BtnTD.appendChild(Edit)
-			BtnTD.appendChild(Delete);	
-
-			
+							
 			tr.appendChild(BtnTD);
-					
 			info.appendChild(tr);
+
+
+
+
+						Delete.onclick = function () {							
+							delSelc = this.parentNode.parentNode.getAttribute('data-tr');
+							demp = localData					
+							var d = demp.splice(delSelc,1)
+							console.log(demp);
+							localStorage.setItem('arr', JSON.stringify(demp)); 
+							
+						}
+		
+		}}
 		
 		
-		}
-		
-		}
 	
 
 	function reset(){
@@ -247,23 +265,7 @@ var localData = JSON.parse(localStorage.getItem('arr'));
 		document.getElementById("main").style.width="250px";
 		document.getElementById("main").style.textAlign="center";
 	}
-	// function edi(){
-	// 		var name1=localData[i].name;
-	// 		var phone1=localData[i].phone;
-	// 		var email1=localData[i].email;
-	// 		var company1=localData[i].company;
-
-	// 		document.getElementById("nam").innerText= name1;
-	// 		document.getElementById("phone").innerText= phone1;
-	// 		document.getElementById("email").innerText= email1;
-	// 		document.getElementById("company").innerText= company1;
-	// 		document.getElementById("save")=document.getElementById("edit");
-	// }
 	
-	// button.innerHTML("save")="edit";
-	// function update(){
-
-	// }
 	
 
 	
