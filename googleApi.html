@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+   
+    *{
+    	margin: 0px;
+    	padding: 0px;
+    	font-family: verdana;
+    }
+    body{
+    	background-color: lightgrey;
+    }
+      #map {
+        height: 600px;
+        width: 50%;
+        float: left;
+       }
+       #contact{
+       	width: 50%;
+       	height: 600px;
+       	/*background-color: lightgrey;*/
+       	float: right;
+       	text-align: center;
+       	box-sizing: border-box;
+ 		}
+       h3{
+       	padding: 15px;
+       	text-align: center;
+       	box-sizing: border-box;
+       	background-color: white;
+       	font-weight: lighter;
+       }
+       #left{
+       	float: left;
+       	text-align: left;
+       	padding-left: 150px;
+       	padding-top: 200px;
+       	
+       }
+       #left ul {
+       	text-decoration: none;
+       	list-style-type: none;
+       	text-align: left;
+       	line-height: 25px;
+       }
+       #left h4 {
+       	text-align: left;
+       }
+       #store p, #icons{
+       	text-align: left;
+       }
+       
+       #store{
+       	float: right;
+       	padding-right: 150px;
+       	padding-top: 200px;
+       	line-height: 25px;
+       	
+       }
+       #contact video{
+       	padding-top:103px;
+       	position: fixed;
+		left: 685px;
+		top: 55px;
+		opacity: 0.3;
+		z-index: -2;
+		width: 50%;
+		height: 600px;
+		
+       }
+       #contact h2{
+       	padding-top: 80px;
+       	box-sizing: border-box;
+       	font-weight: lighter;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Map</h3>
+    <div id="map"></div>
+    <div id="contact">
+   		 <h2>Please Contact for further details</h2>
+    	<video autoplay="autoplay" muted="muted">
+    		<source src="vid.mp4" type="video/mp4">
+    	</video>
+    	<div id="left">
+    		<h4>Contact Details</h4>
+    		<ul>
+    			<li>Address</li>
+    			<li>Divya</li>
+    			<li>423 greek street</li>
+    			<li>Dallas</li>
+    			<li>Texas</li>
+    		</ul>
+    	</div>
+    		<div id="store">
+				<p><strong>Store</strong></p>
+				<p><i class="fa fa-fw fa-map-marker"></i>Company name</p>
+				<p><i class="fa fa-fw fa-phone"></i>0044123123</p>
+				<p><i class="fa fa-fw fa-envelope"></i>ex@mail.com</p>
+				<p><i class="fa fa-fw fa-cc-amex"></i>Amex</p>
+				<p><i class="fa fa-fw fa-credit-card"></i>Credit card</p>
+				<div id="icons">
+					<i class="fa fa-fw fa-facebook-square"></i><i class="fa fa-fw fa-instagram"></i><i class="fa fa-fw fa-snapchat"></i><i class="fa fa-fw fa-pinterest-square"></i><i class="fa fa-fw fa-twitter"></i><i class="fa fa-fw fa-linkedin"></i>
+				</div>
+			</div>
+    	
+    </div>
+    <script>
+      function initMap() {
+        var Arlington = {lat: 32.7791, lng:-96.8003};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: Arlington,
+        });
+        var marker = new google.maps.Marker({
+          position: Arlington,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU724xfm_IKgjw3SUEcTvMUtVHgJAtehE&callback=initMap">
+    </script>
+  </body>
+</html>
