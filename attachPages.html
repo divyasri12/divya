@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>	</title>
+	<link rel="stylesheet" type="text/css" href="singlePage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">	
+
+</head>
+<body>
+<header id="head">
+	<h2>Personal</h2>
+	<ul id="head-ul">
+		<li id="page1"><a href="#">Home</a></li>
+		<li id="page2"><a href="#">About</a></li>
+		<li id="page3"><a href="#">Showcase</a></li>
+		<li id="page4"><a href="#">Contact</a></li>
+	</ul>
+</header>
+<div id="id"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('#page1').click(function(){
+			$('#id').load('page1.html')    
+        });
+        
+		$('#details').click(function(){
+			$('#id').load('page2.html')
+	   });
+		$('#page3').click(function(){
+			$('#id').load('page3.html');
+	   });
+		$('#page4').click(function(){
+			$('#id').load('page4.html');
+	});
+	});
+</script>
+</body>
+</html>

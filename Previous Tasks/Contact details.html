@@ -164,50 +164,51 @@ var arr=[];
 		var num = /^([0-9]{10,15})$/;
 		var mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		
-		if(nam=="" || !cha.test(nam)){
-			document.getElementById("error1").innerHTML="**Please enter valid name**<br/>";
-			return false;
-		}
-		else{
-			document.getElementById("error1").innerHTML = "";
-		}
-		if(phone=="" || !num.test(phone)){
-			document.getElementById("error2").innerHTML="**Please enter valid phone #**<br/>";
-			return false;
-		}
-		else{
-			document.getElementById("error2").innerHTML = "";
-		}
-		if(email=="" || !mail.test(email)){
-			document.getElementById("error3").innerHTML="**Please enter valid email**<br/>";
-			return false;
-		}
-		else{
-			document.getElementById("error3").innerHTML = "";
-		}
-		if(company=="" || !cha.test(company)){
-			document.getElementById("error4").innerHTML="**Please enter valid company**<br/>";
-			return false;
-		}
+		// if(nam=="" || !cha.test(nam)){
+		// 	document.getElementById("error1").innerHTML="**Please enter valid name**<br/>";
+		// 	return false;
+		// }
+		// else{
+		// 	document.getElementById("error1").innerHTML = "";
+		// }
+		// if(phone=="" || !num.test(phone)){
+		// 	document.getElementById("error2").innerHTML="**Please enter valid phone #**<br/>";
+		// 	return false;
+		// }
+		// else{
+		// 	document.getElementById("error2").innerHTML = "";
+		// }
+		// if(email=="" || !mail.test(email)){
+		// 	document.getElementById("error3").innerHTML="**Please enter valid email**<br/>";
+		// 	return false;
+		// }
+		// else{
+		// 	document.getElementById("error3").innerHTML = "";
+		// }
+		// if(company=="" || !cha.test(company)){
+		// 	document.getElementById("error4").innerHTML="**Please enter valid company**<br/>";
+		// 	return false;
+		// }
 
-		else{
+		//else{
 			
 			localStorage.setItem('arr', JSON.stringify(arr));
 			var localData = JSON.parse(localStorage.getItem('arr'));
 			
-
+console.log(localData);
 			var Obj = {"name":nam, "phone":phone,"email":email,"company":company};	
 			arr.push(Obj);
 
-			
+			console.log("obj "+Obj);
 			var tr = document.createElement('tr');
 			var Name = document.createElement('td');
 			var Phone = document.createElement('td');
 			var Email = document.createElement('td');
 			var Company = document.createElement('td');
 			var BtnTD = document.createElement('td');
-	
-		for(var i = 0; i < localData.length; i++){
+	alert(localData.length);
+		for(var i = 0; i >= localData.length; i++){
+			alert("indide");
 			localStorage.setItem('arr', JSON.stringify(arr));
 			var localData = JSON.parse(localStorage.getItem('arr'));
 					
@@ -249,7 +250,9 @@ var arr=[];
 							
 						}
 		
-		}}
+		//}
+
+	}
 		
 		
 	

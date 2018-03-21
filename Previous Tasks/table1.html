@@ -2,6 +2,18 @@
 <html>
 <head>
 	<title></title>
+  <style type="text/css">
+  #data{
+    margin-left: 100px;
+  }
+    #data th{
+      border-bottom: solid black 1px;
+      text-align: left;
+    }
+    #list td{
+      border-bottom: solid black 1px;
+    }
+  </style>
 </head>
 <body>
 <table id="data">
@@ -241,43 +253,41 @@
   }
 ];
   var i,j;
-  var tops=["id","name","username","email", "address","phone", "website", "company"];
+  var tops=["Id","Name","Username","Email", "Address","Phone", "Website", "Company"];
   
   var add=""; 
   var deco = document.getElementById('list');
   deco.setAttribute("style","border:solid black 1px");
   document.getElementById('data').style.border=" 1px solid black";
   
-
-  for(i=0;i<=7;i++){
+  
+  for(j=0;j<=7;j++){
 	  
-	  add += '<th><li>' + tops[i] +'</li></th>'  
+	  add += '<th>' + tops[j] +'</th>'  
 	};
   for(i=0; i<=9; i++){
   	add += '<tr>'
-  	add += '<td><li>' + emp[i].id + '</li></td>'
-  	add += '<td><li>' + emp[i].name + '</li></td>'
-  	add += '<td><li>' + emp[i].username + '</li></td>'
-  	add += '<td><li>' + emp[i].email + '</li></td>'
-  	add += '<td><li>' + emp[i].address.street + 
-  		'<li>' + emp[i].address.suite + '</li>' +  
-  		'<li>' + emp[i].address.city + '</li>' + 
-  		'<li>' + emp[i].address.zipcode + '</li>' +
-  		'<li>' + emp[i].address.geo.lat + '</li>' +
-  		'<li>' + emp[i].address.geo.lng + '</li>' +
-  		'</li></td>'
+  	add += '<td>' + emp[i].id + '</td>'
+  	add += '<td>' + emp[i].name + '</td>'
+  	add += '<td>' + emp[i].username + '</td>'
+  	add += '<td>' + emp[i].email + '</td>'
+  	add += '<td>' + emp[i].address.street + 
+  		'<br/>' + emp[i].address.suite +   
+  		'<br/>' + emp[i].address.city + 
+  		'<br/>' + emp[i].address.zipcode + 
+  		'<br/>' + emp[i].address.geo.lat + 
+  		'<br/>' + emp[i].address.geo.lng +
+  		'</td>'
   	
-  	add += '<td><li>' + emp[i].phone + '</li></td>'
-  	add += '<td><li>' + emp[i].website + '</li></td>'
-  	add += '<td><li>' + emp[i].company.name + 
-  		'<li>' + emp[i].company.catchPhrase + '</li>' +
-  		'<li>' + emp[i].company.bs + '</li>' +
-  	'</li></td>'
+  	add += '<td>' + emp[i].phone + '</td>'
+  	add += '<td>' + emp[i].website + '</td>'
+  	add += '<td>' + emp[i].company.name + 
+  		'<br/>' + emp[i].company.catchPhrase + 
+  		'<br/>' + emp[i].company.bs + 
+  	'</td>'
   	add += '</tr><br/>'
-
- 
   };
-  
+ 
   list.innerHTML = add;
 </script>
 </body>

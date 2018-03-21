@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="singlePage.css">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+	 " rel = "stylesheet">
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+</head>
+<body>
+
+<div id="address" class="clear">
+	<div id="address-h3">
+	 <h3>Contact</h3>
+	 </div>
+    <div id="map"></div>
+    <div id="contact">
+   		 <h2>Please Contact for further details</h2>
+    	
+    	<div id="left">
+    		<h4>Contact Details</h4>
+    		<ul>
+    			<li>Address</li>
+    			<li>Divya</li>
+    			<li>423 greek street</li>
+    			<li>Dallas</li>
+    			<li>Texas</li>
+    		</ul>
+    	</div>
+    		<div id="store">
+				<p><strong>Store</strong></p>
+				<p><i class="fa fa-fw fa-map-marker"></i>Company name</p>
+				<p><i class="fa fa-fw fa-phone"></i>0044123123</p>
+				<p><i class="fa fa-fw fa-envelope"></i>ex@mail.com</p>
+				<p><i class="fa fa-fw fa-cc-amex"></i>Amex</p>
+				<p><i class="fa fa-fw fa-credit-card"></i>Credit card</p>
+				<div id="icons">
+					<i class="fa fa-fw fa-facebook-square"></i><i class="fa fa-fw fa-instagram"></i><i class="fa fa-fw fa-snapchat"></i><i class="fa fa-fw fa-pinterest-square"></i><i class="fa fa-fw fa-twitter"></i><i class="fa fa-fw fa-linkedin"></i>
+				</div>
+			</div>
+    	</div>
+    </div>
+</div>
+<script>
+      function initMap() {
+        var Arlington = {lat: 32.7791, lng:-96.8003};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: Arlington,
+        });
+        var marker = new google.maps.Marker({
+          position: Arlington,
+          map: map
+        });
+      }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU724xfm_IKgjw3SUEcTvMUtVHgJAtehE&callback=initMap">
+</script>
+</body>
+</html>

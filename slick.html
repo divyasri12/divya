@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="singlePage.css">
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+	<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+	 " rel = "stylesheet">
+	
+
+
+</head>
+<body>
+<header id="head">
+	<h2>Personal</h2>
+	<ul id="head-ul">
+		<li><a href="page1.html">Home</a></li>
+		<li><a href="page2.html">About</a></li>
+		<li><a href="page3.html">Showcase</a></li>
+		<li><a href="page4.html">Contact</a></li>
+	</ul>
+</header>
+<div id="page1">
+	<div id="img1" class="mySlides">
+		<div id="text">
+			<h2>Hello!</h2>
+			<p>This is Divya here...</p>
+		</div>
+	</div>
+	<div id="img2" class="mySlides">
+		<div id="text2" >
+			<p>Moving ahead in the path of UI development</p>
+		</div>
+	</div>
+	<div id="img3" class="mySlides">
+		<div id="text3">
+			<p>Hope you will be interested in my journey!</p>
+		</div>
+	</div>
+</div> 
+<script type="text/javascript">
+	var myIndex = 0;
+	slides();
+
+	function slides() {
+	    var i;
+	    var x = document.getElementsByClassName("mySlides");
+	    for (i = 0; i < x.length; i++) {
+	       x[i].style.display = "none";  
+	    }
+	    myIndex++;
+	    if (myIndex > x.length) {myIndex = 1}    
+	    x[myIndex-1].style.display = "block";  
+	    setTimeout(slides, 3000); 
+	}
+</script>
+</body>
+</html>

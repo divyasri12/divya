@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<script>
+var text = "";
+
+
+function savedata(){
+var nam = document.getElementById("name").value;
+var arr = [];
+arr.push(nam);
+console.log(arr);
+  for (var i = 0; i < arr.length; i++) {
+    text += arr[i]+"<br>";
+  }
+document.getElementById("demo").innerHTML = text;
+}
+
+</script>
+
+<input type="text" id="name"><br><br>
+<input type="button" value="save" onclick="savedata()">
+<p id="demo"></p>
+</body>
+</html>
