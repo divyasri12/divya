@@ -1,0 +1,15 @@
+
+.intro {
+    background: url("images/swan.jpg")no-repeat center center;
+    background-size: cover;
+}
+       
+.card {
+    background-color: rgba(229, 228, 255, 0.2);
+}
+
+.md-form label {
+    color: #ffffff;
+}
+              
+                    

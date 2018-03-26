@@ -12,7 +12,13 @@
 	box-sizing: border-box;
 	border-radius: 20px;
 	color: white;
+    z-index: 20;
 
+}
+#top{
+    width: 100%;
+    box-sizing: border-box;
+    height: 100px;
 }
 #head h2{
 	font-weight: lighter;
@@ -35,6 +41,11 @@
 	list-style-type: none;
 	padding: 20px;
 	color: white;
+}
+#id{
+    width: 100%;
+    box-sizing: border-box;
+   padding-top: 100px;
 }
 #img1{
 	width: 100%;
