@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+    <body ng-app="myApp">
+<!--
+        <div ng-controller='uvz'>
+            <p ng-repeat="(x, y) in objt">
+                <h3>{{x}}</h1>
+                <h3>{{y}}</h1>
+            </p>
+        </div>
+-->
+        <table ng-controller="uvz" border="1">
+        <tr ng-repeat="(x, y) in objt">
+          <td>{{x}}</td>
+          <td>{{y}}</td>  
+        </tr>
+        </table>
+    
+    <script>
+            var app = angular.module ('myApp', []);
+            app.controller('uvz', function($scope){
+                $scope.objt={
+                    "name" : "john",
+                    "city" : "Dallas"
+                }
+              
+            })
+    </script>
+    </body>
+</html>
