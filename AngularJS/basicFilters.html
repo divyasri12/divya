@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+</head>
+<body ng-app="myApp">
+
+	<div class="container" ng-controller="ctrl">
+
+
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">First</th>
+		      <th scope="col">Last</th>
+		      <th scope="col">Handle</th>
+		      <th scope="col">Salary</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+
+ 		    <tr ng-repeat="d in data | removeRecords"  class="text-danger">
+		      <th scope="row"> {{ $index+1 }} </th>
+		      <td>{{d.fname | uppercase }}</td>
+		      <td>{{d.lname}}</td>
+		      <td>{{d.handel}}</td>
+		      <td (ng-show="d.salary < 1000"))>{{d.salary}}</td>
+             
+
+		    </tr>
+            <tr ng-repeat="d in data | removeRecord"  class="text-info">
+		      <th scope="row"> {{ $index+3 }} </th>
+		      <td>{{d.fname | uppercase }}</td>
+		      <td>{{d.lname}}</td>
+		      <td>{{d.handel}}</td>
+              <td (ng-show="d.salary > 1000")>{{d.salary}}</td> 
+            </tr>
+		  </tbody>
+		</table>
+	</div>
+
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.filter('removeRecords', function(){
+
+			return function(r){
+				var arr = [];
+			for(var i = 0; i < r.length; i ++){
+				r[i].salary <= "1000" ? "1000":arr.push(r[i]); 
+			}
+
+			return arr;
+		}
+
+		});
+        
+        app.filter('removeRecord', function(){
+
+			return function(r){
+				var arr = [];
+			for(var i = 0; i < r.length; i ++){
+				r[i].salary > "1000" ? "1000":arr.push(r[i]); 
+			}
+
+			return arr;
+		}
+
+		});
+
+
+			app.controller('ctrl', ['$scope', function($scope){
+				
+				$scope.data = [
+								{ fname :"Mark", lname: 'Otto', handel:"@mdo", salary : 3000},
+								{ fname :"Jacob", lname: 'Thornton', handel:"@fat", salary : 1000},
+								{ fname :"Larry", lname: 'the Bird	', handel:"@twitter", salary : 500},
+								{ fname :"Harry", lname: 'abc', handel:"@twitter", salary : 1500}
+							  ]				
+			}]);
+
+
+
+	</script>
+</body>
+</html>
